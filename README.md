@@ -89,7 +89,13 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                  debug_flag=False # 是否需要调试，为False时为部署（整点运行），为True时为调试（下一分钟运行）；Boolean类型
                 )
 ```
-#### 4. 在青龙运行（尚未完善）
+#### 4. 更新（同名文件会被替换，请勿修改所有已clone的文件）
+```bash
+git clone https://github.com/BeHalcyon/fisher_script.git
+```
+
+```
+### 青龙环境（尚未完善）
 ```python
 ExchangeManagement(...).executeInQingLong()
 ```
