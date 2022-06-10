@@ -94,7 +94,6 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 git clone https://github.com/BeHalcyon/fisher_script.git
 ```
 
-```
 ### 青龙环境（尚未完善）
 ```python
 ExchangeManagement(...).executeInQingLong()
