@@ -85,8 +85,9 @@ ExchangeManagement(
                  sign_flag=False, # 必须：是否需要sign，为True时默认点点券；Boolean类型
                  day_or_week='day', # 必须：周期为day或week；字符串类型
                  post_flag=True, # 必须：是否为post类型的request；Boolean类型
+                 proxy_flag=False, # 可选：是否选择代理，为False时默认不选择，为True时需保证127.0.0.1:7890为代理访问；Boolean类型
                  print_type="one of [cmd, file], default to cmd", # 可选：日志为直接输出或文件类型输出；字符串类型
-                 coupon_type="", # 必须：券名
+                 coupon_type="", # 必须：券名；字符串类型
                  cookie_type="one of [wskey, test, cookie, plus]", # 必须：测试时选择test，部署时选择cookie；字符串类型
                  ). \
 executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
