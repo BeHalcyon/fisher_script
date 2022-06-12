@@ -10,6 +10,11 @@
 git clone https://github.com/BeHalcyon/fisher_script.git
 ```
 
+#### 2. 选择python对应版本的项目作为项目根目录（命令行模式下输入python命令）
+```bash
+python
+```
+
 #### 2. 项目根目录下创建fisher_configure.json文件，模板：
 ```json
 {
@@ -62,8 +67,7 @@ git clone https://github.com/BeHalcyon/fisher_script.git
 }
 ```
 
-#### 3. 参数介绍
-
+#### 4. 参数介绍
 ```python
 ExchangeManagement(
                  url="", # 必须：包含functionId及相关内容的url；字符串类型
@@ -89,7 +93,7 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                  debug_flag=False # 是否需要调试，为False时为部署（整点运行），为True时为调试（下一分钟运行）；Boolean类型
                 )
 ```
-#### 4. 更新（同名文件会被替换，请勿修改所有已clone的文件）
+#### 5. 更新（同名文件会被替换，请勿修改所有已clone的文件）
 ```bash
 git clone https://github.com/BeHalcyon/fisher_script.git
 ```
