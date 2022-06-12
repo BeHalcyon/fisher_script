@@ -1,7 +1,9 @@
 
 
 ### 简介
-个人学习，加密代码，请勿使用！
+- 个人学习，加密代码，请勿使用！
+- 所有仓库脚本请勿原地修改，如需要自定义功能，可在目录下创建新的文件。
+- 为防滥用，ExchangeLib定时授权，如遇到证书过期，请更新库文件。
 
 ### 本地环境
 
@@ -15,7 +17,7 @@ git clone https://github.com/BeHalcyon/fisher_script.git
 python --version
 ```
 
-#### 2. 项目根目录下创建fisher_configure.json文件
+#### 3. 项目根目录下创建fisher_configure.json文件
 
 模板：
 ```json
@@ -94,7 +96,7 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 ```
 #### 5. 更新
 仓库内示例文件请勿修改，更新时会被覆盖。
-配置文件不会被覆盖，请放心食用。
+自定义的文件（如配置文件）不会被覆盖，请放心食用。
 
 ```bash
 git pull origin master
