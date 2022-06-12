@@ -12,10 +12,12 @@ git clone https://github.com/BeHalcyon/fisher_script.git
 
 #### 2. 选择python对应版本的项目作为项目根目录（命令行模式下输入python命令）
 ```bash
-python
+python --version
 ```
 
-#### 2. 项目根目录下创建fisher_configure.json文件，模板：
+#### 2. 项目根目录下创建fisher_configure.json文件
+
+模板：
 ```json
 {
   "interface":{
@@ -42,11 +44,9 @@ python
     "ws_cookies": [
       "pin=xxxxxxxx;wskey=xxxxxxxxxxxxxx;unionwsws=xxxxxxxxxxxxxxxxxx;",
       "pin=xxxxxxxx;wskey=xxxxxxxxxxxxxx;unionwsws=xxxxxxxxxxxxxxxxxx;",
-      "pin=xxxxxxxx;wskey=xxxxxxxxxxxxxx;unionwsws=xxxxxxxxxxxxxxxxxx;",
       "pin=xxxxxxxx;wskey=xxxxxxxxxxxxxx;unionwsws=xxxxxxxxxxxxxxxxxx;"
     ],
     "plus_cookies": [
-      "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;"
@@ -54,11 +54,9 @@ python
     "test_cookies": [
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
-      "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;"
     ],
     "cookies": [
-      "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;",
       "pt_key=xxxxxxxxxxx;pt_pin=xxxxxxxxxxxx;"
@@ -94,9 +92,12 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                  debug_flag=False # 是否需要调试，为False时为部署（整点运行），为True时为调试（下一分钟运行）；Boolean类型
                 )
 ```
-#### 5. 更新（同名文件会被替换，请勿修改所有已clone的文件）
+#### 5. 更新
+仓库内示例文件请勿修改，更新时会被覆盖。
+配置文件不会被覆盖，请放心食用。
+
 ```bash
-git clone https://github.com/BeHalcyon/fisher_script.git
+git pull origin master
 ```
 
 ### 青龙环境（尚未完善）
