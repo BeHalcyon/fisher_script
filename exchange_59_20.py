@@ -28,9 +28,10 @@ if __name__ == "__main__":
         sign_flag=True,
         day_or_week='week',
         post_flag=True,
+        proxy_flag=True,
         coupon_type="59-20_1",
         cookie_type="wskey") \
-        .executeInDesktop(
+    .executeInDesktop(
         clock_list=[0, 10, 14, 18, 22],
         debug_flag=False
     )

@@ -29,8 +29,25 @@ if __name__ == "__main__":
 
     ExchangeManagement(
         url=url,
-        headers=headers, headers_user_agent_random_flag=True, user_agent="", body_dict=body_dict, batch_size=12,
+        headers=headers,
+        headers_user_agent_random_flag=True,
+        user_agent="",
+        body_dict=body_dict,
+        batch_size=12,
         other_batch_size=4,
-        second_ahead=0.25, sleep_time=0.03, thread_number=12, append_flag=False,
-        log_flag=False, sign_flag=False, day_or_week='day', post_flag=True, print_type="cmd",
-        coupon_type="59-20_3", cookie_type="cookie").executeInDesktop(clock_list=[0, 10, 14, 20, 22], debug_flag=False )
+        second_ahead=0.25,
+        sleep_time=0.02,
+        thread_number=12,
+        append_flag=False,
+        log_flag=False,
+        sign_flag=False,
+        day_or_week='day',
+        post_flag=True,
+        proxy_flag=False,
+        print_type="cmd",
+        coupon_type="59-20_3",
+        cookie_type="cookie")\
+    .executeInDesktop(
+        clock_list=[0, 10, 14, 20, 22],
+        debug_flag=False
+    )

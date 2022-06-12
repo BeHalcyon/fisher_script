@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     headers = {
         "Accept": "*/*",
-        "Accept-Encoding": "gzip, deflate",
+        "Accept-Encoding": "gzip, deflate, br",
         "Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
         "Connection": "keep-alive",
         "Content-Type": "application/x-www-form-urlencoded",
@@ -29,18 +29,26 @@ if __name__ == "__main__":
     }
     url = 'https://api.m.jd.com/client.action?functionId=lite_newBabelAwardCollection&client=wh5&clientVersion=1.0.0'
 
-    # ExchangeManagement(
-    #     url=url,
-    #     headers=headers, headers_user_agent_random_flag=True, user_agent="", body_dict=body_dict, batch_size=6,
-    #     other_batch_size=4,
-    #     second_ahead=0.3, sleep_time=0.03, thread_number=12, append_flag=False,
-    #     log_flag=True, sign_flag=False, day_or_week='week', post_flag=True,
-    #     coupon_type="15-8", cookie_type="test").executeInQingLong()
-
     ExchangeManagement(
         url=url,
-        headers=headers, headers_user_agent_random_flag=True, user_agent="", body_dict=body_dict, batch_size=6,
+        headers=headers,
+        headers_user_agent_random_flag=True,
+        user_agent="",
+        body_dict=body_dict, batch_size=6,
         other_batch_size=5,
-        second_ahead=0.2, sleep_time=0.035, thread_number=12, append_flag=False,
-        log_flag=True, sign_flag=False, day_or_week='day', post_flag=True, print_type="cmd",
-        coupon_type="15-8", cookie_type="cookie").executeInDesktop(clock_list=[9, 12, 15, 18, 20], debug_flag=False)
+        second_ahead=0.17,
+        sleep_time=0.025,
+        thread_number=12,
+        append_flag=False,
+        log_flag=True,
+        sign_flag=False,
+        day_or_week='day',
+        post_flag=True,
+        proxy_flag=True,
+        print_type="cmd",
+        coupon_type="15-8",
+        cookie_type="cookie")\
+    .executeInDesktop(
+        clock_list=[9, 12, 15, 18, 20],
+        debug_flag=False
+    )
