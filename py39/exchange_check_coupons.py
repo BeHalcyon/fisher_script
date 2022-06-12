@@ -10,7 +10,6 @@ new Env("优惠券通知");
 '''
 from exchange_lib import *
 
-
 if __name__ == '__main__':
 
     ExchangeManagement(cookie_type="cookie")
@@ -23,6 +22,3 @@ if __name__ == '__main__':
         content += findCoupons(cookie)
     print(content)
     sendNotification(summary=summary, content=content)
-
-    printT("通知发送成功")
-
