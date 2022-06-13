@@ -18,7 +18,7 @@ if __name__ == "__main__":
         headers_user_agent_random_flag=False,
         user_agent="okhttp/3.12.1;jdmall;android;version/11.0.2;build/97565;",
         body_dict={},
-        batch_size=12,
+        batch_size=4,
         other_batch_size=4,
         second_ahead=0.3,
         sleep_time=0.03,
