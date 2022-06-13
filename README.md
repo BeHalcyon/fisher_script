@@ -12,14 +12,19 @@
 git clone https://github.com/BeHalcyon/fisher_script.git
 ```
 
-#### 2. 选择python对应版本的项目作为项目根目录（命令行模式下输入python命令）
+#### 2. 选择python对应版本的项目作为项目根目录
+命令行模式下输入python命令，判断版本
 ```bash
 python --version
+```
+进入指定版本的根目录（例如Python版本为3.8.2）
+```bash
+cd ./py38
 ```
 
 #### 3. 项目根目录下创建fisher_configure.json文件
 
-模板：
+##### 模板：
 ```json
 {
   "interface":{
@@ -67,32 +72,31 @@ python --version
 }
 ```
 
-参数解释：
+##### 参数解释：
 
-- JDLITE_LOG_API
-    极速版的log api，通用
+- JDLITE_LOG_API：极速版的log api，通用
     
-- JD_SIGN_API
-    本库依赖的SIGN api，不通用，联系我获取
+- JD_SIGN_API：本库依赖的SIGN api，不通用，联系我获取
     
-- JD_SIGN_API_TOKEN
-    本库依赖的SIGN api对应的token，不通用，联系我获取
+- JD_SIGN_API_TOKEN：本库依赖的SIGN api对应的token，不通用，联系我获取
     
-- database_flag
-    为"database_remote"时需要设定database_remote参数，表示数据库存储到远程服务器（mysql），默认为"database_local"（sqlite），不需要设定database_remote参数。
+- database_flag：为"database_remote"时需要设定database_remote参数，表示数据库存储到远程服务器（mysql），默认为"database_local"（sqlite），不需要设定database_remote参数。
     
-- WXPUSHER_APP_TOKEN和WXPUSHER_UID
-    wxpusher的app token和个人uid
+- WXPUSHER_APP_TOKEN和WXPUSHER_UID：wxpusher的app token和个人uid
     
-- ws_cookies、plus_cookies、test_cookies、cookies
-    分别为wskey格式的cookie、plus会员的cookie、测试时的cookie及正常运行的普通cookie
+- ws_cookies、plus_cookies、test_cookies、cookies：分别为wskey格式的cookie、plus会员的cookie、测试时的cookie及正常运行的普通cookie
 
-JSON注意事项：
+##### JSON注意事项：
 - 文件内所有字符均为英文
+
 - 中括号内最后一个元素的尾部没有","，其他元素尾部均有","
+
 - 模板内的参数可以缺省，但不可以删除
 
-#### 4. 参数介绍
+#### 4. 库示例
+
+#####代码
+
 ```python
 ExchangeManagement(
                  url="", # 必须：包含functionId及相关内容的url；字符串类型
@@ -120,7 +124,7 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                 )
 ```
 
-几个参数的额外描述：
+##### 几个参数的额外描述
 
 | 参数     | 描述     |
 | -------- | -------- |
