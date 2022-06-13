@@ -95,7 +95,7 @@ cd ./py38
 
 #### 4. 库示例
 
-#####代码
+##### 代码
 
 ```python
 ExchangeManagement(
@@ -117,7 +117,7 @@ ExchangeManagement(
                  proxy_flag=False, # 可选：是否选择代理，为False时默认不选择，为True时需保证127.0.0.1:7890为代理访问；Boolean类型
                  print_type="one of [cmd, file], default to cmd", # 可选：日志为直接输出或文件类型输出；字符串类型
                  coupon_type="", # 必须：券名；字符串类型
-                 cookie_type="one of [wskey, test, cookie, plus]", # 必须：测试时选择test，部署时选择cookie；字符串类型
+                 cookie_type="one of [wskey, test, cookie, plus]", # 必须：测试时选择test（默认本地sqlite数据库），部署时选择cookie；字符串类型
                  ). \
 executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                  debug_flag=False # 是否需要调试，为False时为部署（整点运行），为True时为调试（下一分钟运行）；Boolean类型
@@ -128,7 +128,6 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 
 | 参数     | 描述     |
 | -------- | -------- |
-| cookie_type="test" | 选择测试类型的cookie，且默认启用本地数据库 |
 | log_flag=False, sign_flag=False | 非校验类型的通用api，需填写url, headers, body_dict参数 |
 | log_flag=True, sign_flag=False | 极速版log校验类型的api，需填写url, headers, body_dict参数 |
 | log_flag=False, sign_flag=True | sign校验类型的api，无需填写url, headers, body_dict参数 |
