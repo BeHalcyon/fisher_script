@@ -133,8 +133,10 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 | log_flag=False, sign_flag=True | sign校验类型的api，无需填写url, headers, body_dict参数 |
 
 #### 5. 更新
-仓库内示例文件请勿修改，更新时会被覆盖。
-自定义的文件（如配置文件）不会被覆盖，请放心食用。
+- 更新前先进如仓库根目录
+- 仓库内示例文件请勿修改，更新时会被覆盖。
+- 自定义的文件（如配置文件）不会被覆盖，请放心食用。
+
 
 ```bash
 git pull origin master

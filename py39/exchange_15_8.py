@@ -23,7 +23,9 @@ if __name__ == "__main__":
         "Referer": "https://prodev.m.jd.com/jdlite/active/3H885vA4sQj6ctYzzPVix4iiYN2P/index.html?sid=bf6ae253e73f472d5ec294810f46665w&un_area=7_502_35752_35860"
     }
     body_dict = {
-        'activityId': '3H885vA4sQj6ctYzzPVix4iiYN2P',
+        # 'activityId': '3H885vA4sQj6ctYzzPVix4iiYN2P',
+        'activityId': 'NoDXcsd7dn8g1WFjwJztsWjHvSa',
+        # 'activityId': 'Da41jakjlsd56Aks432SFd1SfDh',
         'scene': '1',
         'args': 'key=4C884367B622BB96ABD488103A5036F58B08100D4FEC967D97AA8854BC13AF4A50BE6F7B01529B9D56C52BEAB5EB5235_bingo,roleId=A921D0996A757D3D319487D17C0F25FE701307BE103D49F3D1562C7CF5D02F01F1043E437093D585B4730F630A66804F8AE429E9F2C40EE1F0580E482F388FEEF1F5A8A69753844555247364707E6E41040F01DEE945DF4C10432FB4875EA6DF48164CC736ACE898EE9E8947855DBC30CD8BF4D53E7EA1B873BAAE1052D9BB9748A8F83F1E3CD76509AFB2939FC10B6AE2ADCB50653791DF313F8F7BF0AF7AE7_bingo,strengthenKey=3FE987FADD098B5D46BA38B21875A5EBD8C02F19572CB3C5CC0385902CD416A23D357AD5C32B073932D1986E4D335028_bingo'
     }
@@ -36,7 +38,7 @@ if __name__ == "__main__":
         user_agent="",
         body_dict=body_dict, batch_size=6,
         other_batch_size=5,
-        second_ahead=0.17,
+        second_ahead=0.18,
         sleep_time=0.025,
         thread_number=12,
         append_flag=False,
