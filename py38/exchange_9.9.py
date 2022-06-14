@@ -44,7 +44,7 @@ if __name__ == "__main__":
         headers_user_agent_random_flag=False,
         user_agent="jdapp;android;10.5.2;;;appBuild/96428;ef/1;ep/%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1655122900598%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22sv%22%3A%22EG%3D%3D%22%2C%22ad%22%3A%22EJvuZwZtYwYnCtqzDtrwDK%3D%3D%22%2C%22od%22%3A%22YtLwCzc0DQG3ZNOzEQS2Zq%3D%3D%22%2C%22ov%22%3A%22Ctq%3D%22%2C%22ud%22%3A%22EJvuZwZtYwYnCtqzDtrwDK%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jingdong.app.mall%22%7D;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 9; MI 6 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.72 MQQBrowser/6.2 TBS/046010 Mobile Safari/537.36",
         body_dict=body_dict,
-        batch_size=6,
+        batch_size=7,
         other_batch_size=4,
         second_ahead=0.20,
         sleep_time=0.00,
@@ -60,5 +60,5 @@ if __name__ == "__main__":
         cookie_type="cookie")\
     .executeInDesktop(
         clock_list=[0, 10, 20],
-        debug_flag=False
+        debug_flag=True
     )
