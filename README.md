@@ -4,6 +4,7 @@
 - 个人学习，加密代码，请勿使用！
 - 所有仓库脚本请勿原地修改，如需要自定义功能，可在目录下创建新的文件。
 - 为防滥用，ExchangeLib定时授权，如遇到证书过期，请更新库文件。
+- **遇到问题后，请先把本文档看一遍。**
 
 ### 本地环境
 
@@ -22,7 +23,7 @@ python --version
 cd ./py38
 ```
 
-推荐版本：Python 3.9.2, Python 3.8.2, Python 3.7.9, Python 3.6.3。其他版本暂未测试。
+推荐版本：Python 3.9.2, Python 3.8.2, Python 3.7.9, Python 3.6.3。其他版本暂未测试，测试不通请先更换指定python版本。
 
 #### 3. 项目根目录下创建fisher_configure.json文件
 
@@ -89,13 +90,42 @@ cd ./py38
 - ws_cookies、plus_cookies、test_cookies、cookies：分别为wskey格式的cookie、plus会员的cookie、测试时的cookie及正常运行的普通cookie
 
 ##### JSON注意事项：
-- 文件内所有字符均为英文
+- 文件内所有字符均为英文，不能有中文符号（例如"，"）
 
 - 中括号内最后一个元素的尾部没有","，其他元素尾部均有","
 
-- 模板内的参数可以缺省，但不可以删除
+- 模板内所有的参数可以缺省，但不可以删除
+
+- ws_cookies参数中，需要对字符串内的双引号及反斜杠进行转义：
+
+以下为**错误**示例：
+```json
+{
+  "ws_cookies": [
+    "pin=xxxxxxx;wskey=xx\xxx;abc={"aasdfas":"asdfs\/dfgs"};"
+  ]
+}
+```
+
+以下为**正确**示例：
+```json
+{
+  "ws_cookies": [
+    "pin=xxxxxxx;wskey=xx\\xxx;abc={\"aasdfas\":\"asdfs\\/dfgs\"};"
+  ]
+}
+```
 
 #### 4. 库示例
+
+##### 测试
+
+- 命令行执行如下命令，无报错运行后说明环境部署成功。
+```python
+python ./exchange_check_coupons.py
+```
+
+- pycharm中，直接点击运行exchange_check_coupons.py，，无报错运行后说明环境部署成功。
 
 ##### 代码
 
@@ -106,8 +136,8 @@ ExchangeManagement(
                  headers_user_agent_random_flag=True, # 必须：请求头中的user-agent是否随机；Boolean类型
                  user_agent="", # 可选：当headers_user_agent_random_flag为False时有效，用于设定固定user-agent；字符串类型
                  body_dict={}, # 可选：请求体，包含"body"、"args"等关键字；字典类型
-                 batch_size=6, # 必须：周期内首批需要运行的账号数，所有batch_size内账号全部抢到后，才开始考虑其他账号；整型
-                 other_batch_size=4, # 可选：周期内次批一次性需要运行的账号数；整型
+                 batch_size=6, # 必须：周期内首批需要运行的账号数，所有前batch_size个账号全部抢到后，才开始考虑其他账号；整型
+                 other_batch_size=4, # 可选：周期内次批一次性需要运行的账号数，为0时默认每次根据权重选择batch_size个账号运行；整型
                  second_ahead=0.3, # 必须：线程启动的提前秒数，线程的冷冻时间；例如提前0.40s准备启动线程，依赖于设备资源；浮点类型
                  sleep_time=0.03, # 必须：每个线程的等待时间，每次post的等待时间，依赖于网络传输速率；浮点类型
                  thread_number=12, # 必须：线程数量，post次数，可根据thread_number*sleep_time粗略计算当场运行时间
