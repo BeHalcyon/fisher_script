@@ -22,6 +22,8 @@ python --version
 cd ./py38
 ```
 
+推荐版本：Python 3.9.2, Python 3.8.2, Python 3.7.9, Python 3.6.3。其他版本暂未测试。
+
 #### 3. 项目根目录下创建fisher_configure.json文件
 
 ##### 模板：
