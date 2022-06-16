@@ -33,6 +33,7 @@ if __name__ == "__main__":
         headers_user_agent_random_flag=True,
         user_agent="",
         body_dict=body_dict,
+        activitiId_random_flag=True,
         batch_size=12,
         other_batch_size=4,
         second_ahead=0.25,
@@ -45,9 +46,9 @@ if __name__ == "__main__":
         post_flag=True,
         proxy_flag=False,
         print_type="cmd",
-        coupon_type="59-20_3",
+        coupon_type="59-20_3_2",
         cookie_type="cookie")\
     .executeInDesktop(
         clock_list=[0, 10, 14, 20, 22],
-        debug_flag=False
+        debug_flag=True
     )
