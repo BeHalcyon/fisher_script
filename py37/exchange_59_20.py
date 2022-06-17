@@ -29,7 +29,7 @@ if __name__ == "__main__":
         day_or_week='week',
         post_flag=True,
         proxy_flag=True,
-        coupon_type="59-20_1_2",
+        coupon_type="59-20_1",
         cookie_type="wskey") \
     .executeInDesktop(
         clock_list=[0, 10, 14, 18, 22],

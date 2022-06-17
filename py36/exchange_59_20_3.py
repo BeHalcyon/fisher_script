@@ -50,5 +50,5 @@ if __name__ == "__main__":
         cookie_type="cookie")\
     .executeInDesktop(
         clock_list=[0, 10, 14, 20, 22],
-        debug_flag=True
+        debug_flag=False
     )
