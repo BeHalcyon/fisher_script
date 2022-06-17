@@ -14,6 +14,11 @@
 | 0.2 | 修复了0点输出及推送异常的bug；增加了body_activityid_random_flag参数 |
 | 0.1 | . |
 
+验证是否更新成功：
+```bash
+python -c "import exchange_lib; print(exchange_lib.__version__)"
+```
+
 ### 本地环境
 
 #### 1. 拉库
