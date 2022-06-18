@@ -46,7 +46,7 @@ if __name__ == "__main__":
         post_flag=True,
         proxy_flag=False,
         print_type="cmd",
-        coupon_type="59-20_3_2",
+        coupon_type="59-20_3",
         cookie_type="cookie")\
     .executeInDesktop(
         clock_list=[0, 10, 14, 20, 22],
