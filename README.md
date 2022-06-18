@@ -10,6 +10,7 @@
 
 | 版本     | 描述     |
 | -------- | -------- |
+| 0.4 | 提供真实及虚拟activityId的区分，分别用于参数生成及“很抱歉”情况的避免 |
 | 0.3 | 启动时间随机设置为59分0~10s，避免多进程或多设备的数据库写入冲突； 修复获取log可能存在的网络异常|
 | 0.2 | 修复了0点输出及推送异常的bug；增加了body_activityid_random_flag参数 |
 | 0.1 | . |
@@ -92,9 +93,9 @@ cd ./py38
 
 - JDLITE_LOG_API：极速版的log api，通用
     
-- JD_SIGN_API：本库依赖的SIGN api，不通用，联系我获取
+- JD_SIGN_API：本库依赖的SIGN api，不通用
     
-- JD_SIGN_API_TOKEN：本库依赖的SIGN api对应的token，不通用，联系我获取
+- JD_SIGN_API_TOKEN：本库依赖的SIGN api对应的token，不通用
     
 - database_flag：为"database_remote"时需要设定database_remote参数，表示数据库存储到远程服务器（mysql），默认为"database_local"（sqlite），不需要设定database_remote参数。
     
@@ -138,7 +139,7 @@ cd ./py38
 python ./exchange_check_coupons.py
 ```
 
-- pycharm中，直接点击运行exchange_check_coupons.py，，无报错运行后说明环境部署成功。
+- pycharm中，直接点击运行exchange_check_coupons.py，无报错运行后说明环境部署成功。
 
 ##### 代码
 
@@ -149,6 +150,8 @@ ExchangeManagement(
                  headers_user_agent_random_flag=True, # 必须：请求头中的user-agent是否随机；Boolean类型
                  user_agent="", # 可选：当headers_user_agent_random_flag为False时有效，用于设定固定user-agent；字符串类型
                  body_dict={}, # 可选：请求体，包含"body"、"args"等关键字；字典类型
+                 activityId_random_flag=False, # 可选：是否选择随机的activityId，随机时设置为True，能够避免长期索引某activityId引起的抱歉
+                 discount="", # 可选：设定指定的折扣值，当activityId_random_flag=False时有效；字符串类型
                  batch_size=6, # 必须：周期内首批需要运行的账号数，所有前batch_size个账号全部抢到后，才开始考虑其他账号；整型
                  other_batch_size=4, # 可选：周期内次批一次性需要运行的账号数，为0时默认每次根据权重选择batch_size个账号运行；整型
                  second_ahead=0.3, # 必须：线程启动的提前秒数，线程的冷冻时间；例如提前0.40s准备启动线程，依赖于设备资源；浮点类型
@@ -176,6 +179,8 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 | log_flag=False, sign_flag=False | 非校验类型的通用api，需填写url, headers, body_dict参数 |
 | log_flag=True, sign_flag=False | 极速版log校验类型的api，需填写url, headers, body_dict参数 |
 | log_flag=False, sign_flag=True | sign校验类型的api，无需填写url, headers, body_dict参数 |
+| discount="8", activityId_random_flag=False | 券的优惠值，用于动态获取每个cookie的args的券索引，该args通常需要用log，即log_falg需设置为True |
+| activityId_random_flag=True | 每场随机改变activityId，设定为True后会使用默认activityId，且discount失效 |
 
 #### 5. 更新
 - 更新前先进如仓库根目录

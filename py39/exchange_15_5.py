@@ -34,7 +34,9 @@ if __name__ == "__main__":
         headers_user_agent_random_flag=True,
         user_agent="",
         body_dict=body_dict,
-        batch_size=6,
+        activitiId_random_flag=False,
+        discount="5",
+        batch_size=7,
         other_batch_size=4,
         second_ahead=0.15,
         sleep_time=0.03,
@@ -46,7 +48,7 @@ if __name__ == "__main__":
         post_flag=True,
         coupon_type="15-5",
         cookie_type="cookie") \
-    .executeInDesktop(
+    .execute(
         clock_list=[0, 10, 20],
         debug_flag=True
     )

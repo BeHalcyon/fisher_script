@@ -44,7 +44,7 @@ if __name__ == "__main__":
         body_dict=body_dict,
         activitiId_random_flag=False,
         discount="8",
-        batch_size=6,
+        batch_size=7,
         other_batch_size=5,
         second_ahead=0.18,
         sleep_time=0.025,
