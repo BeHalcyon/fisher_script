@@ -24,7 +24,6 @@ if __name__ == "__main__":
         "sec-fetch-dest": "empty",
         "content-Type": "application/x-www-form-urlencoded",
         "x-requested-with": "com.jd.jdlite",
-        'origin': 'https://pro.m.jd.com',
         "referer": "https://prodev.m.jd.com/"
     }
 
@@ -43,21 +42,22 @@ if __name__ == "__main__":
         user_agent="jdltapp;android;3.8.18;;;appBuild/2318;ef/1;ep/%7B%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22ts%22%3A1655352551144%2C%22ridx%22%3A-1%2C%22cipher%22%3A%7B%22sv%22%3A%22EG%3D%3D%22%2C%22ad%22%3A%22CzUmCzvsYzSnCtYzDNq0ZG%3D%3D%22%2C%22od%22%3A%22YtLwCzc0DQG3ZNOzEQS2Zq%3D%3D%22%2C%22ov%22%3A%22Ctq%3D%22%2C%22ud%22%3A%22CzUmCzvsYzSnCtYzDNq0ZG%3D%3D%22%7D%2C%22ciphertype%22%3A5%2C%22version%22%3A%221.2.0%22%2C%22appname%22%3A%22com.jd.jdlite%22%7D;Mozilla/5.0 (Linux; Android 9; MI 6 Build/PKQ1.190118.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.72 MQQBrowser/6.2 TBS/045836 Mobile Safari/537.36",
         body_dict=body_dict,
         discount="8",
+        activitiId_random_flag=False,
         batch_size=8,
-        other_batch_size=5,
-        second_ahead=0.18,
-        sleep_time=0.025,
-        thread_number=12,
+        other_batch_size=0,
+        second_ahead=0,
+        sleep_time=0,
+        thread_number=18,
         append_flag=False,
         log_flag=True,
         sign_flag=False,
         day_or_week='day',
         post_flag=True,
-        proxy_flag=False,
+        proxy_flag=True,
         print_type="cmd",
         coupon_type="15-8",
         cookie_type="cookie")\
     .executeInDesktop(
         clock_list=[9, 12, 15, 18, 20],
-        debug_flag=False
+        debug_flag=True
     )

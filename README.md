@@ -10,6 +10,7 @@
 
 | 版本     | 描述     |
 | -------- | -------- |
+| 0.6 | 极速版类券可取消设定second_ahead参数，每场次自动化计算 |
 | 0.5 | 青龙代码适配，环境尚未适配 |
 | 0.4 | 提供真实及虚拟activityId的区分，分别用于参数生成及“很抱歉”情况的避免 |
 | 0.3 | 启动时间随机设置为59分0~10s，避免多进程或多设备的数据库写入冲突； 修复获取log可能存在的网络异常|
@@ -180,8 +181,9 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 | log_flag=False, sign_flag=False | 非校验类型的通用api，需填写url, headers, body_dict参数 |
 | log_flag=True, sign_flag=False | 极速版log校验类型的api，需填写url, headers, body_dict参数 |
 | log_flag=False, sign_flag=True | sign校验类型的api，无需填写url, headers, body_dict参数 |
-| discount="8", activityId_random_flag=False | 券的优惠值，用于动态获取每个cookie的args的券索引，该args通常需要用log，即log_falg需设置为True |
+| discount="8", activityId_random_flag=False | 券的优惠值，该args通常需要用log，即log_falg需设置为True |
 | activityId_random_flag=True | 每场随机改变activityId，设定为True后会使用默认activityId，且discount失效 |
+| second_ahead=0, sleep_time=0 | second_ahead为0时自动配准某东服务器整点，搭配线程睡眠时间为0，不间断请求时间 |
 
 #### 5. 更新
 - 更新前先进如仓库根目录
