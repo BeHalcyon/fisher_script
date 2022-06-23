@@ -53,7 +53,7 @@ if __name__ == "__main__":
         sign_flag=False,
         day_or_week='day',
         post_flag=True,
-        proxy_flag=True,
+        proxy_flag=False,
         print_type="cmd",
         coupon_type="15-8",
         cookie_type="cookie")\

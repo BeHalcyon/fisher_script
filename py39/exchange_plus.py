@@ -30,6 +30,8 @@ if __name__ == "__main__":
     url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=60946520270113&_={int(round(time.time()*1000))}'
     # 万达
     url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=60946520269991&_={int(round(time.time()*1000))}'
+    # 肯德基
+    url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=60947948441996&_={int(round(time.time()*1000))}'
 
     ExchangeManagement(
         url=url,
@@ -39,9 +41,9 @@ if __name__ == "__main__":
         body_dict={},
         batch_size=6,
         other_batch_size=4,
-        second_ahead=0.21,
-        sleep_time=0.03,
-        thread_number=12,
+        second_ahead=0,
+        sleep_time=0,
+        thread_number=15,
         append_flag=False,
         log_flag=False,
         sign_flag=False,
@@ -49,8 +51,8 @@ if __name__ == "__main__":
         post_flag=False,
         proxy_flag=True,
         print_type="cmd",
-        coupon_type="plus",
+        coupon_type="plus_kfc",
         cookie_type="plus").\
     executeInDesktop(
-        clock_list=[12, 20],
+        clock_list=[10],
         debug_flag=False)
