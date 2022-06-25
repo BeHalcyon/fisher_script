@@ -20,7 +20,7 @@ if __name__ == "__main__":
         body_dict={},
         batch_size=9,
         activitiId_random_flag=False,
-        other_batch_size=8,
+        other_batch_size=3,
         # second_ahead=0.31,
         second_ahead=0,
         sleep_time=0,

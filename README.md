@@ -10,6 +10,7 @@
 
 | 版本     | 描述     |
 | -------- | -------- |
+| 20220625:v0.11 | 修复0点进入队列的异常号bug；增加授权 |
 | 20220624:v0.10 | 修复多轮启动后second_ahead无法重置的bug；日志内敏感pin字段加密； |
 | 20220623:v0.9 | 配置文件修改为软加载方式，修改文件后不需要重新启动脚本，下一轮默认重新加载 |
 | 20220622:v0.8 | 动态适配配置文件中的cookies类型，可自定义类型并在代码种设定cookie_type，支持前缀字段索引 |
@@ -17,7 +18,7 @@
 | 20220620:v0.6 | 极速版类券可取消设定second_ahead参数，每场次自动化计算 |
 | 20220618:v0.5 | 青龙代码适配，环境尚未适配 |
 | 20220616:v0.4 | 提供真实及虚拟activityId的区分，分别用于参数生成及“很抱歉”情况的避免 |
-| 20220614:v0.3 | 启动时间随机设置为59分0~10s，避免多进程或多设备的数据库写入冲突； 修复获取log可能存在的网络异常|
+| 20220614:v0.3 | 启动时间随机设置为59分0~10s，避免多进程或多设备的数据库写入冲突；修复获取log可能存在的网络异常|
 | 20220612:v0.2 | 修复了0点输出及推送异常的bug；增加了body_activityid_random_flag参数 |
 | 20220610:v0.1 | fisher_script: the coupons ExchangeLib |
 
@@ -50,10 +51,11 @@ cd ./py38
 ##### 模板：
 ```json
 {
+  "authorization_code": "xxxxxxxxxx",
   "interface":{
     "JDLITE_LOG_API": "http://x.x.x.x:5889/log",
     "JD_SIGN_API": "http://x.x.x.x:x/x",
-    "JD_SIGN_API_TOKEN": ""
+    "JD_SIGN_API_TOKEN": "xxxxxxxxxx"
   },
   "database": {
     "database_flag": "database_local",
@@ -96,6 +98,8 @@ cd ./py38
 ```
 
 ##### 参数解释：
+
+- authorization_code：授权码，为空时可以开最多1个线程，用于测试
 
 - JDLITE_LOG_API：极速版的log api，通用
     
