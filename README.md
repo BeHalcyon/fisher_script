@@ -53,7 +53,7 @@ cd ./py38
 {
   "authorization_code": "xxxxxxxxxx",
   "interface":{
-    "JDLITE_LOG_API": "http://x.x.x.x:5889/log",
+    "JDLITE_LOG_API": "http://x.x.x.x:5889/batchLog",
     "JD_SIGN_API": "http://x.x.x.x:x/x",
     "JD_SIGN_API_TOKEN": "xxxxxxxxxx"
   },
