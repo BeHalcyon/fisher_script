@@ -51,6 +51,6 @@ if __name__ == "__main__":
         coupon_type="10-2",
         cookie_type="cookie") \
     .executeInDesktop(
-        clock_list=[7, 16],
+        clock_list=[7, 16, 20],
         debug_flag=False
     )
