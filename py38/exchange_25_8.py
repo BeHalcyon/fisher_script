@@ -6,7 +6,7 @@ Author: yangyang
 功能：
 Date: 2022-5-7
 cron: 20 59 8,11,14,17,19 * * *
-new Env("极速版15减8");
+new Env("极速版25减8");
 '''
 
 from exchange_lib import *
@@ -35,6 +35,8 @@ if __name__ == "__main__":
 
     url = 'https://api.m.jd.com/client.action?functionId=lite_newBabelAwardCollection&client=wh5&clientVersion=1.0.0&screen=1080x1701&sid=5d16d6a94e8ddaabe3d4cc3bdc588d9w&uuid=16496913392821345390631.304.1655352241347&area=7_502_35752_35860'
 
+    args = parseArgs()
+
     ExchangeManagement(
         url=url,
         headers=headers,
@@ -43,11 +45,11 @@ if __name__ == "__main__":
         body_dict=body_dict,
         discount="8",
         activitiId_random_flag=False,
-        batch_size=12,
+        batch_size=args.batch_size if args.batch_size > 0 else 12,
         other_batch_size=0,
         second_ahead=0,
         sleep_time=0,
-        thread_number=30,
+        thread_number=args.thread_number if args.thread_number > 0 else 30,
         append_flag=False,
         log_flag=True,
         sign_flag=False,
@@ -55,9 +57,9 @@ if __name__ == "__main__":
         post_flag=True,
         proxy_flag=False,
         print_type="cmd",
-        coupon_type="15-8",
-        cookie_type="cookie")\
+        coupon_type="25-8",
+        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'cookie')\
     .executeInDesktop(
         clock_list=[9, 12, 15, 18, 20],
-        debug_flag=False
+        debug_flag=args.debug_flag if args.debug_flag else False
     )

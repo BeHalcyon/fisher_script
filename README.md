@@ -3,13 +3,14 @@
 ### 简介
 - 个人学习，加密代码，请勿使用！
 - 所有仓库脚本请勿原地修改，如需要自定义功能，可在目录下创建新的文件。
-- 为防滥用，ExchangeLib定时授权，如遇到证书过期，请更新库文件。
+- 为防滥用，ExchangeLib定时授权，如遇到证书过期，更新库文件。
 - **遇到问题后，请先把本文档看一遍。**
 
 ### 更新日志
 
 | 版本     | 描述     |
 | -------- | -------- |
+| 20220702:v0.13 | 增加命令行式参数设计功能，可灵活支持多脚本并行执行，参考**命令行交互** |
 | 20220630:v0.12 | 增加订单查询功能；增加红包查询功能 |
 | 20220625:v0.11 | 修复0点进入队列的异常号bug；增加授权；支持小时购类券；大幅降低高峰期调用log服务器的频率 |
 | 20220624:v0.10 | 修复多轮启动后second_ahead无法重置的bug；日志内敏感pin字段加密； |
@@ -181,6 +182,16 @@ ExchangeManagement(
 executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
                  debug_flag=False # 是否需要调试，为False时为部署（整点运行），为True时为调试（下一分钟运行）；Boolean类型
                 )
+```
+
+##### 命令行交互
+以下示例解释：以调试方式运行exchange_x_x.py脚本，设定线程数量为12，每轮次抢6个账号，cookie_type为fisher_configure.json配置文件中的"fisher1"字段的cookie
+```bash
+python exchange_x_x.py --debug_flag --thread_number 12 --batch_size 6 --cookie_type fisher1
+```
+以下示例解释：整点运行exchange_x_x.py脚本，设定线程数量为18，每轮次抢3个账号，cookie_type为fisher_configure.json配置文件中的"fisher2"字段的cookie
+```bash
+python exchange_x_x.py --thread_number 12 --batch_size 3 --cookie_type fisher2
 ```
 
 ##### 几个参数的额外描述
