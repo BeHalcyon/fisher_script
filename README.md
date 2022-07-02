@@ -189,9 +189,17 @@ executeInDesktop(clock_list=[0, 10, 14, 20, 22], # 定时任务；
 ```bash
 python exchange_x_x.py --debug_flag --thread_number 12 --batch_size 6 --cookie_type fisher1
 ```
-以下示例解释：整点运行exchange_x_x.py脚本，设定线程数量为18，每轮次抢3个账号，cookie_type为fisher_configure.json配置文件中的"fisher2"字段的cookie
+以下示例解释：整点运行exchange_x_x.py脚本，设定线程数量为12，每轮次抢3个账号，cookie_type为fisher_configure.json配置文件中的"fisher2"字段的cookie
 ```bash
 python exchange_x_x.py --thread_number 12 --batch_size 3 --cookie_type fisher2
+```
+以下示例解释：以调试方式运行exchange_x_x.py脚本，设定线程数量为脚本内默认的值，每轮次抢为脚本内默认个账号，cookie_type为脚本内默认的cookie_type
+```bash
+python exchange_x_x.py --debug_flag
+```
+以下示例解释：整点运行exchange_x_x.py脚本，设定线程数量为脚本内默认的值，每轮次抢为脚本内默认个账号，cookie_type为脚本内默认的cookie_type
+```bash
+python exchange_x_x.py
 ```
 
 ##### 几个参数的额外描述
