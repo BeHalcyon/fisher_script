@@ -12,7 +12,9 @@ from exchange_lib import *
 
 if __name__ == '__main__':
 
-    ExchangeManagement(cookie_type="cookie")
+    args = parseArgs()
+
+    ExchangeManagement(cookie_type=args.cookie_type if args.cookie_type != "None" else "mine")
 
     cookies = os.environ["JD_COOKIE"].split('&') if "JD_COOKIE" in os.environ else []
 
