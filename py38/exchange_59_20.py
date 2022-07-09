@@ -12,19 +12,21 @@ from exchange_lib import *
 
 if __name__ == "__main__":
 
+    args = parseArgs()
+
     ExchangeManagement(
         url="",
         headers={},
         headers_user_agent_random_flag=False,
         user_agent="okhttp/3.12.1;jdmall;android;version/11.0.2;build/97565;",
         body_dict={},
-        batch_size=18,
+        batch_size=args.batch_size if args.batch_size > 0 else 10,
         activitiId_random_flag=False,
-        other_batch_size=3,
+        other_batch_size=0,
         # second_ahead=0.31,
         second_ahead=0,
         sleep_time=0,
-        thread_number=18,
+        thread_number=args.thread_number if args.thread_number > 0 else 20,
         append_flag=False,
         log_flag=False,
         sign_flag=True,
@@ -32,8 +34,8 @@ if __name__ == "__main__":
         post_flag=True,
         proxy_flag=True,
         coupon_type="59-20_1",
-        cookie_type="wskey") \
+        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'wskey') \
     .executeInDesktop(
         clock_list=[0, 10, 14, 18, 22],
-        debug_flag=False
+        debug_flag=args.debug_flag if args.debug_flag else True
     )
