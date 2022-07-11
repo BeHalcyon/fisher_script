@@ -53,6 +53,6 @@ if __name__ == "__main__":
         coupon_type="10-3",
         cookie_type=args.cookie_type if args.cookie_type != "None" else "cookie") \
     .executeInDesktop(
-        clock_list=[7, 16, 20],
+        clock_list=[7, 16],
         debug_flag=args.debug_flag if args.debug_flag else False
     )

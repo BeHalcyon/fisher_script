@@ -37,5 +37,5 @@ if __name__ == "__main__":
         cookie_type=args.cookie_type if args.cookie_type != 'None' else 'wskey') \
     .executeInDesktop(
         clock_list=[0, 10, 14, 18, 22],
-        debug_flag=args.debug_flag if args.debug_flag else True
+        debug_flag=args.debug_flag if args.debug_flag else False
     )

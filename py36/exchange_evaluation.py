@@ -100,7 +100,7 @@ def getOrderList(cookies, shop_name=''):
                     })
     return result
 
-def commentOrders(comment_orders_dict):
+def commentOrders(comment_orders_dict, proxy_flag=False):
     url = "https://api.m.jd.com/api?appid=jd-cphdeveloper-m&functionId=sendEval&loginType=2&sceneval=2&g_login_type=1&g_ty=ajax&appCode=ms0ca95114"
     headers = {
         "accept": "application/json",
@@ -117,6 +117,7 @@ def commentOrders(comment_orders_dict):
         log_num += len(value)
     logs = getLogs(num=log_num)
     log_num = 0
+    order_id_set = set()
     for cookie, orders in comment_orders_dict.items():
         headers['cookie'] = cookie
         for order in orders:
@@ -131,13 +132,35 @@ def commentOrders(comment_orders_dict):
                 "syncsg": 0,
                 "scence": 101100000
             }
-            response = requests.post(url=url, headers=headers, data=generateBody(body, logs[log_num])).json()
+
+            response = requests.post(url=url, headers=headers, data=generateBody(body, logs[log_num]), proxies=getProxies(proxy_flag)).json()
 
             if 'errMsg' in response and response['errMsg'] == 'success':
-                printT(f"{getUserName(cookie)}: 评价成功！内容：{order['comment']}")
+                printT(f"{getUserName(cookie)}: 评价成功！店铺：{order['shopName']}, 内容：{order['comment']}")
             else:
-                print(response)
-                printT(f"{getUserName(cookie)}: 可能评价成功！内容：{order['comment']}")
+                printT(f"{getUserName(cookie)}: 评价失败！店铺：{order['shopName']}, 日志：{response}")
+
+            if order['oid'] not in order_id_set:
+
+                se_url = f'https://wq.jd.com/eval/SendDSR'
+                se_data = {
+                    'userclient': '29',
+                    'orderId': order['oid'],
+                    'otype': 5,
+                    'DSR1': 5,
+                    'DSR2': 5,
+                    'DSR3': 5,
+                    'DSR4': 5,
+                    'g_login_type': '0',
+                    'g_ty': 'ls'
+                }
+                se_req = requests.get(se_url, headers=headers, params=se_data, proxies=getProxies(proxy_flag)).json()
+                if se_req['errMsg'] == 'success':
+                    order_id_set.add(order['oid'])
+                    printT(f"{getUserName(cookie)}: 评价服务成功！店铺：{order['shopName']}")
+                else:
+                    printT(f"{getUserName(cookie)}: 评价服务失败！店铺：{order['shopName']}")
+
             log_num += 1
             time.sleep(random.randint(5, 10))
 
@@ -148,8 +171,9 @@ if __name__ == '__main__':
 
     ExchangeManagement(cookie_type=args.cookie_type if args.cookie_type != "None" else "mine")
     cookies = os.environ['JD_COOKIE'].split("&")
+    os.environ['proxy_ip'] = args.proxy_ip if len(args.proxy_ip) else "127.0.0.1:7890"
     result = getOrderList(cookies, shop_name=args.shop_name)
     for key, value in result.items():
         for item in value:
             print(getUserName(key), item)
-    commentOrders(result)
+    commentOrders(result, proxy_flag=args.proxy_flag if args.proxy_flag else False)
