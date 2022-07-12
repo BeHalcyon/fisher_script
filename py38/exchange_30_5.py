@@ -38,7 +38,7 @@ if __name__ == "__main__":
         body_dict=body_dict,
         activitiId_random_flag=False,
         discount="5",
-        batch_size=args.batch_size if args.batch_size > 0 else 12,
+        batch_size=args.batch_size if args.batch_size > 0 else 30,
         other_batch_size=0,
         second_ahead=0,
         sleep_time=0,
@@ -50,7 +50,7 @@ if __name__ == "__main__":
         post_flag=True,
         proxy_flag=True,
         coupon_type="30-5",
-        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'cookie') \
+        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'heyangfang') \
     .executeInDesktop(
         clock_list=[0, 15],
         debug_flag=args.debug_flag if args.debug_flag else False
