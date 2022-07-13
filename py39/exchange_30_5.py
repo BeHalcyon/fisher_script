@@ -48,7 +48,8 @@ if __name__ == "__main__":
         sign_flag=False,
         day_or_week='day',
         post_flag=True,
-        proxy_flag=True,
+        proxy_flag=args.proxy_flag if args.proxy_flag else False,
+        proxy_ip=args.proxy_ip if len(args.proxy_ip) else "",
         coupon_type="30-5",
         cookie_type=args.cookie_type if args.cookie_type != 'None' else 'heyangfang') \
     .executeInDesktop(

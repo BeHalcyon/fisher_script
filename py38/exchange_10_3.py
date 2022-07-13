@@ -48,7 +48,8 @@ if __name__ == "__main__":
         sign_flag=False,
         day_or_week='day',
         post_flag=True,
-        proxy_flag=False,
+        proxy_flag=args.proxy_flag if args.proxy_flag else False,
+        proxy_ip=args.proxy_ip if len(args.proxy_ip) else "",
         print_type="cmd",
         coupon_type="10-3",
         cookie_type=args.cookie_type if args.cookie_type != "None" else "heyangfang") \

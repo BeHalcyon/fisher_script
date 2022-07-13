@@ -49,7 +49,7 @@ if __name__ == "__main__":
         other_batch_size=0,
         second_ahead=0,
         sleep_time=0,
-        thread_number=args.thread_number if args.thread_number > 0 else 30,
+        thread_number=args.thread_number if args.thread_number > 0 else 20,
         append_flag=False,
         log_flag=True,
         sign_flag=False,
@@ -60,6 +60,7 @@ if __name__ == "__main__":
         coupon_type="25-8",
         cookie_type=args.cookie_type if args.cookie_type != 'None' else 'heyangfang')\
     .executeInDesktop(
-        clock_list=[9, 12, 15, 18, 20],
+        # clock_list=[9, 12, 15, 18, 20],
+        clock_list=[9, 12, 15, 18],
         debug_flag=args.debug_flag if args.debug_flag else False
     )
