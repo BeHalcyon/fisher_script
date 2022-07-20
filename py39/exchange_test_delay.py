@@ -5,14 +5,15 @@ def testRequestDelayThread(url, headers, body_dict, proxy_flag, thread_id, res_d
     start_time = time.time()
     try:
         if post_flag:
-            requests.post(url=url, verify=False, headers=headers,
+            res = requests.post(url=url, verify=False, headers=headers,
                           data=body_dict, proxies=getProxies(proxy_flag), timeout=3)
         else:
-            requests.get(url=url, verify=False, headers=headers,
+            res = requests.get(url=url, verify=False, headers=headers,
                           data=body_dict, proxies=getProxies(proxy_flag), timeout=3)
+        res_dict[thread_id] = time.time() - start_time
+        # printT(f"Current IP address and Port: {res.raw._connection.sock.socket.getsockname()}")
     except Exception:
         return
-    res_dict[thread_id] = time.time() - start_time
 
 
 def testRequestDelay(url, headers, body_dict, sleep_time=0.03, proxy_flag=False, post_flag=True):
@@ -23,7 +24,7 @@ def testRequestDelay(url, headers, body_dict, sleep_time=0.03, proxy_flag=False,
     thread_number, threads, res_dict = 40, [], {}
     for i in range(thread_number):
         threads.append(threading.Thread(target=testRequestDelayThread,
-                                        args=(url, headers, body_dict, getProxies(proxy_flag), i, res_dict, post_flag, )))
+                                        args=(url, headers, body_dict, proxy_flag, i, res_dict, post_flag, )))
     for i in range(thread_number):
         threads[i].start()
         time.sleep(sleep_time)
@@ -40,6 +41,7 @@ def testRequestDelay(url, headers, body_dict, sleep_time=0.03, proxy_flag=False,
     else:
         printT("Warning: The proxy is not available! Set the delay to 0.12ms.")
         return 0.12
+
 
 if __name__ == "__main__":
 
@@ -63,7 +65,7 @@ if __name__ == "__main__":
 
     requests.packages.urllib3.disable_warnings()
 
-    os.environ["PROXY_IP"] = args.proxy_ip if len(args.proxy_ip) else '127.0.0.1:7890'
+    os.environ["PROXY_IP"] = args.proxy_ip if len(args.proxy_ip) else 'http://127.0.0.1:7890'
 
     if args.proxy_flag:
         printT(f"The proxy ip is set to {os.environ['PROXY_IP']}")
