@@ -47,7 +47,7 @@ if __name__ == "__main__":
         batch_size=args.batch_size if args.batch_size > 0 else 10,
         other_batch_size=0,
         second_ahead=0,
-        sleep_time=0,
+        sleep_time=0.01,
         thread_number=args.thread_number if args.thread_number > 0 else 20,
         append_flag=False,
         log_flag=False,
