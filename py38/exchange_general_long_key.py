@@ -62,7 +62,7 @@ if __name__ == "__main__":
         proxy_flag=args.proxy_flag if args.proxy_flag else False,
         proxy_ip=args.proxy_ip if len(args.proxy_ip) else "",
         coupon_type=args.coupon_type if args.coupon_type != 'None' else '15-5',
-        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'heyang') \
+        cookie_type=args.cookie_type if args.cookie_type != 'None' else 'mine_coupons') \
     .executeInDesktop(
-        debug_flag=args.debug_flag if args.debug_flag else False
+        debug_flag=args.debug_flag if args.debug_flag else True
     )
