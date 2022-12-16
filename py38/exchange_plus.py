@@ -48,7 +48,7 @@ if __name__ == "__main__":
     url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=71704988678033&_={int(round(time.time() * 1000))}'
 
     # 万达
-    url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=71705032716967&_={int(round(time.time() * 1000))}'
+    url = f'https://rsp.jd.com/resource/lifePrivilege/receive/v1?lt=m&an=plus.mobile&uniqueId=71704447587533&_={int(round(time.time() * 1000))}'
 
     args = parseArgs()
 
@@ -67,10 +67,10 @@ if __name__ == "__main__":
         sign_flag=False,
         day_or_week='day',
         post_flag=False,
-        proxy_flag=args.proxy_flag if args.proxy_flag else False,
+        proxy_flag=args.proxy_flag if args.proxy_flag else True,
         print_type="cmd",
         coupon_type="plus_quanyi",
-        cookie_type=args.cookie_type if args.cookie_type != "None" else "plus").\
+        cookie_type=args.cookie_type if args.cookie_type != "None" else "mine_coupons").\
     executeInDesktop(
         clock_list=[0, 10],
-        debug_flag=args.debug_flag if args.debug_flag else False)
+        debug_flag=args.debug_flag if args.debug_flag else True)

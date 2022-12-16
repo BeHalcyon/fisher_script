@@ -10,7 +10,9 @@ def testRequestDelayThread(url, headers, body_dict, proxy_flag, thread_id, res_d
         else:
             res = requests.get(url=url, verify=False, headers=headers,
                           data=body_dict, proxies=getProxies(proxy_flag), timeout=3)
-        res_dict[thread_id] = time.time() - start_time
+        # res_dict[thread_id] = time.time() - start_time
+        res_dict[thread_id] = res.elapsed.total_seconds()
+        # print(time.time() - start_time, res_dict[thread_id])
         # printT(f"Current IP address and Port: {res.raw._connection.sock.socket.getsockname()}")
     except Exception:
         return
