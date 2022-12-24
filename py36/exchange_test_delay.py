@@ -2,6 +2,8 @@ from exchange_lib import *
 
 
 def testRequestDelayThread(url, headers, body_dict, proxy_flag, thread_id, res_dict={}, post_flag=True):
+    printT("Calculating request delay test...")
+
     start_time = time.time()
     try:
         if post_flag:
@@ -12,6 +14,12 @@ def testRequestDelayThread(url, headers, body_dict, proxy_flag, thread_id, res_d
                           data=body_dict, proxies=getProxies(proxy_flag), timeout=3)
         # res_dict[thread_id] = time.time() - start_time
         res_dict[thread_id] = res.elapsed.total_seconds()
+        # print(res.headers)
+        print(res_dict[thread_id], time.time() - start_time)
+        d = datetime.datetime.fromtimestamp(int(res.headers['X-API-Request-Id'].split('-')[-1]) / 1000)
+        str1 = d.strftime("%Y-%m-%d %H:%M:%S.%f")
+
+
         # print(time.time() - start_time, res_dict[thread_id])
         # printT(f"Current IP address and Port: {res.raw._connection.sock.socket.getsockname()}")
     except Exception:
@@ -23,7 +31,7 @@ def testRequestDelay(url, headers, body_dict, sleep_time=0.03, proxy_flag=False,
     headers = json.loads(json.dumps(headers))
     if "Cookie" in headers: headers['Cookie'] = ""
     if "cookie" in headers: headers['cookie'] = ""
-    thread_number, threads, res_dict = 40, [], {}
+    thread_number, threads, res_dict = 30, [], {}
     for i in range(thread_number):
         threads.append(threading.Thread(target=testRequestDelayThread,
                                         args=(url, headers, body_dict, proxy_flag, i, res_dict, post_flag, )))
@@ -34,6 +42,16 @@ def testRequestDelay(url, headers, body_dict, sleep_time=0.03, proxy_flag=False,
         threads[i].join()
     res = sorted(res_dict.values())
     res_dict = collections.Counter([int(100*x+1)/100.0 for x in res])
+
+    # import matplotlib.pyplot as plt
+    #
+    # params = {
+    #     'figure.figsize': '8, 4'
+    # }
+    # plt.rcParams.update(params)
+    # plt.bar(res_dict.keys(), res_dict.values(), width=0.01)
+    # plt.show()
+
     printT(res_dict)
     res = [x[0] for x in res_dict.most_common(3)]
     if len(res):
@@ -73,6 +91,6 @@ if __name__ == "__main__":
         printT(f"The proxy ip is set to {os.environ['PROXY_IP']}")
 
     testRequestDelay(url, headers, body_dict,
-                     sleep_time=0.00,
+                     sleep_time=0,
                      proxy_flag=args.proxy_flag if args.proxy_flag else False,
                      post_flag=True)
