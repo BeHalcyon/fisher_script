@@ -26,7 +26,8 @@ if __name__ == "__main__":
     }
 
     body_dict = {
-        "activityId":"e9z6GPMVDF4fZ2X6NNwJfot4yxhS",
+        # "activityId":"e9z6GPMVDF4fZ2X6NNwJfot4yxhS",
+        "activityId": "6GPMX6Ne9zNt4yVDF4wJfofZ2xhS",
         "from":"H5node",
         "scene":"1",
         "args": "key=c1m3c0s0o6ae485e936c029467cb3391,roleId=83519576"
